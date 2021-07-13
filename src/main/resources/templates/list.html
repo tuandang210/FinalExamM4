@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<h1>Cities List</h1>
+<a th:href="@{/cities/create}">Add new</a>
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Country</th>
+    <th>Area</th>
+    <th>Population</th>
+    <th>GPA</th>
+    <th>Description</th>
+    <th colspan="3">Action</th>
+  </tr>
+  <tr th:each="x: ${cities}">
+    <td th:text="${x.name}"></td>
+    <td th:text="${x.country.country}"></td>
+    <td th:text="${x.area}"></td>
+    <td th:text="${x.population}"></td>
+    <td th:text="${x.gpa}"></td>
+    <td th:text="${x.description}"></td>
+    <td><a th:href="@{/edit/__${x.id}__}">edit</a></td>
+    <td><a th:href="@{/delete/__${x.id}__}" onclick="return confirm('Are you sure!')">delete</a></td>
+    <td><a th:href="@{/view/__${x.id}__}">view</a></td>
+  </tr>
+</table>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
