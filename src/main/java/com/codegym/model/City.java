@@ -31,7 +31,7 @@ public class City implements Validator {
     private Double population;
     @Min(1)
     private Double gpa;
-    @Size(min = 20)
+    @Size(max = 20)
     private String description;
 
     @Override

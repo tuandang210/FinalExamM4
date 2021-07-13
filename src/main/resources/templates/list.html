@@ -25,9 +25,9 @@
     <td th:text="${x.population}"></td>
     <td th:text="${x.gpa}"></td>
     <td th:text="${x.description}"></td>
-    <td><button class="btn btn-primary" th:href="@{/edit/__${x.id}__}">edit</button></td>
-    <td><button class="btn btn-danger" th:href="@{/delete/__${x.id}__}" onclick="return confirm('Are you sure!')">delete</button></td>
-    <td><button class="btn btn-success" th:href="@{/view/__${x.id}__}">view</button></td>
+    <td><a class="btn btn-primary" th:href="@{/edit/__${x.id}__}">edit</a></td>
+    <td><a class="btn btn-danger" th:href="@{/delete/__${x.id}__}" onclick="return confirm('Are you sure!')">delete</a></td>
+    <td><a class="btn btn-success" th:href="@{/view/__${x.id}__}">view</a></td>
   </tr>
 </table>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

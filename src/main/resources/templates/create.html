@@ -12,6 +12,9 @@
     <div class="row">
         <h1>Create new</h1>
     </div>
+    <div>
+        <p th:if="${message}"><span th:text="${mesaage}"></span></p>
+    </div>
     <div class="row">
         <a th:href="@{/cities}" class="btn btn-link">Back</a>
     </div>
@@ -48,7 +51,8 @@
             </div>
             <div class="form-group">
                 <label for="cityDescription">Description</label>
-                <textarea class="form-control" required id="cityDescription" th:field="*{description}"></textarea>
+                <textarea class="form-control" id="cityDescription" th:field="*{description}"></textarea>
+                <span  style="color: red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

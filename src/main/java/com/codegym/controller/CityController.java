@@ -42,6 +42,7 @@ public class CityController {
             modelAndView = new ModelAndView("/create");
             Iterable<Country> countries = countryService.findAll();
             modelAndView.addObject("countries", countries);
+            modelAndView.addObject("message", "Success!!");
             return modelAndView;
         }
         cityService.edit(city);
@@ -78,7 +79,7 @@ public class CityController {
         city.validate(city, bindingResult);
         ModelAndView modelAndView = new ModelAndView("/edit");
         if (bindingResult.hasFieldErrors()) {
-            modelAndView = new ModelAndView("/create");
+            modelAndView = new ModelAndView("/edit");
             Iterable<Country> countries = countryService.findAll();
             modelAndView.addObject("countries", countries);
             return modelAndView;
