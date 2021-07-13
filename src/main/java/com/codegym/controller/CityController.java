@@ -42,13 +42,14 @@ public class CityController {
             modelAndView = new ModelAndView("/create");
             Iterable<Country> countries = countryService.findAll();
             modelAndView.addObject("countries", countries);
-            modelAndView.addObject("message", "Success!!");
+
             return modelAndView;
         }
         cityService.edit(city);
         Iterable<Country> countries = countryService.findAll();
         modelAndView = new ModelAndView("/create");
         modelAndView.addObject("city", new City());
+        modelAndView.addObject("message", "Success!!");
         modelAndView.addObject("countries", countries);
         return modelAndView;
     }
