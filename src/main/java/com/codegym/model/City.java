@@ -21,16 +21,17 @@ public class City implements Validator {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
+    @Size(min = 3, max = 50)
     private String name;
     @ManyToOne
     private Country country;
-//    @Min(1)
+    @Min(1)
     private Double area;
-//    @Min(1)
+    @Min(1)
     private Double population;
-//    @Min(1)
+    @Min(1)
     private Double gpa;
-//    @Size(min = 20)
+    @Size(min = 20)
     private String description;
 
     @Override
@@ -45,13 +46,13 @@ public class City implements Validator {
         Double population = city.getPopulation();
         Double gdp = city.getGpa();
         if (area <= 0){
-            errors.rejectValue("area", "area1", "Area must be positive");
+            errors.rejectValue("area", "area1", "");
         }
         if (population <= 0){
-            errors.rejectValue("population", "population1", "Population must be positive");
+            errors.rejectValue("population", "population1", "");
         }
         if (gdp <= 0){
-            errors.rejectValue("GDP", "gdp1", "GDP must be positive");
+            errors.rejectValue("gpa", "gpa1", "");
         }
     }
 }

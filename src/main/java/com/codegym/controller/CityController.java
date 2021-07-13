@@ -36,6 +36,7 @@ public class CityController {
 
     @PostMapping("/cities/create")
     public ModelAndView addNewCity(@Validated @ModelAttribute City city, BindingResult bindingResult) {
+        city.validate(city, bindingResult);
         ModelAndView modelAndView;
         if (bindingResult.hasFieldErrors()) {
             modelAndView = new ModelAndView("/create");
@@ -73,8 +74,15 @@ public class CityController {
     }
 
     @PostMapping("/save")
-    public ModelAndView saveEdit(@ModelAttribute City city){
+    public ModelAndView saveEdit(@Validated @ModelAttribute City city, BindingResult bindingResult){
+        city.validate(city, bindingResult);
         ModelAndView modelAndView = new ModelAndView("/edit");
+        if (bindingResult.hasFieldErrors()) {
+            modelAndView = new ModelAndView("/create");
+            Iterable<Country> countries = countryService.findAll();
+            modelAndView.addObject("countries", countries);
+            return modelAndView;
+        }
         modelAndView.addObject("message", "Success!!");
         cityService.edit(city);
         return modelAndView;

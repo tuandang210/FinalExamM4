@@ -20,7 +20,7 @@
             <div class="form-group">
                 <label for="cityName">Name</label>
                 <input type="text" class="form-control" id="cityName" th:field="*{name}">
-                                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+                                <span style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
             </div>
             <div class="form-group">
                 <h5 for="cityName">Country</h5>
@@ -32,18 +32,18 @@
             </div>
             <div class="form-group">
                 <label for="cityArea">Area</label>
-                <input type="text" class="form-control" id="cityArea" th:field="*{area}" required>
-                <!--                <span th:if="${#fields.hasErrors('area')}" th:errors="*{area}"></span>-->
+                <input type="text" class="form-control" id="cityArea" th:field="*{area}" >
+                                <span style="color: red" th:if="${#fields.hasErrors('area')}" th:errors="*{area}"></span>
             </div>
             <div class="form-group">
                 <label for="cityPopulation">Population</label>
-                <input type="text" class="form-control" id="cityPopulation" th:field="*{population}" required>
-                <!--                <span th:if="${#fields.hasErrors('population')}" th:errors="*{population}"></span>-->
+                <input type="text" class="form-control" id="cityPopulation" th:field="*{population}" >
+                                <span style="color: red" th:if="${#fields.hasErrors('population')}" th:errors="*{population}"></span>
             </div>
             <div class="form-group">
                 <label for="cityGDP">GPA</label>
-                <input type="text" class="form-control" id="cityGDP" th:field="*{gpa}" required>
-                <!--                <span th:if="${#fields.hasErrors('gpa')}" th:errors="*{gpa}"></span>-->
+                <input type="text" class="form-control" id="cityGDP" th:field="*{gpa}" >
+                                <span style="color: red" th:if="${#fields.hasErrors('gpa')}" th:errors="*{gpa}"></span>
             </div>
             <div class="form-group">
                 <label for="cityDescription">Description</label>
